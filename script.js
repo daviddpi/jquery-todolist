@@ -7,9 +7,9 @@ $(document).ready(function(){
 
     // ! crea un elemento della lista
     function createTodo(){
-        lista.prepend('<input type="text" placeholder="Inserisci Todo"></input>');
+        lista.prepend('<input id="input-text-add" type="text" placeholder="Inserisci Todo"></input>');
 
-        $("input").keydown( function (e){ 
+        $("#input-text-add").keydown( function (e){ 
             if (e.keyCode == 13) {
                 lista.prepend(
                     `<li class="list-group-item"><i class="fa-solid fa-circle-check"></i>
@@ -59,17 +59,17 @@ $(document).ready(function(){
         $(ele).toggleClass('deactivate');
     }
 
-    // // ! funzione di ricerca
-    // testo.keydown( function(e){
-    //     let findText = $(`li:contains(${testo.val()})`)
-    //     if (e.keyCode == 13) {
-    //         console.log(testo.val());
-    //         if(findText){
-    //             findText.css("backgroundColor", "yellow")
-    //         }
+    // ! funzione di ricerca (not work!)
+    testo.keydown( function(e){
+        let findText = $(`li:contains(${testo.val()})`)
+        if (e.keyCode == 13) {
+            console.log(testo.val());
+            if(findText){
+                findText.css("backgroundColor", "yellow")
+            }
             
-    //     }
-    // })
+        }
+    })
     
     
     $(".add-todo").click(function (){ 

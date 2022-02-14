@@ -1,0 +1,85 @@
+nav{
+    padding: 0 25px;
+}
+
+.list-group-flush>.list-group-item:hover{
+    background-color: rgb(238, 236, 236);
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.add-todo{
+    margin-bottom: 25px;
+    width: max-content;
+}
+
+.add-todo:hover{
+    cursor: pointer;
+    transition: all 0.2s ease;
+    transform: scale(1.07);
+}
+
+
+.fa-plus-circle{
+    font-size: 1.5rem;
+    margin-right: 5px;
+}
+
+.fa-circle-check{
+    margin-right: 10px;
+    color: #6337c5;
+    font-size: 1.2rem;
+}
+
+.container-ellipsis{
+    font-size: 1.2rem;
+    position: absolute;
+    top: 50%;
+    right: 1%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.fa-ellipsis:hover{
+    cursor: pointer;
+}
+
+
+input{
+    border-radius: 15px;
+    padding: 0 25px;
+    margin: 10px;
+}
+
+span{
+    z-index: -1;
+}
+
+.deactivate{
+    filter: grayscale(100%);
+}
+
+.deactivate .fa-ellipsis{
+    display: none;
+}
+
+.fa-ellipsis{
+    position: relative;
+}
+
+.dropdown--ellipsis{
+    position: absolute;
+    top: -50%;
+    transform: translate(-110%);
+    background-color: #fefefe;
+    border: 1px solid lightslategray;
+    width: 100px;
+    border-radius: 10px;
+    display: none;
+}
+
+.dropdown--ellipsis option:hover{
+    background-color: rgb(238, 236, 236);
+    cursor: pointer;
+    border-radius: 10px;
+}

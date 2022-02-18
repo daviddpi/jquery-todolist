@@ -13,7 +13,7 @@ $(document).ready(function(){
             if (e.keyCode == 13) {
                 lista.prepend(
                     `<li class="list-group-item"><i class="fa-solid fa-circle-check"></i>
-                    ${$(this).val()}
+                    <span>${$(this).val()}</span>
                         <div class="container-ellipsis">
                             <i class="fa-solid fa-ellipsis"></i>
                             <div class="dropdown--ellipsis">
@@ -38,7 +38,7 @@ $(document).ready(function(){
             if (e.keyCode == 13) {
                 $(this).parents("li").append(
                     `<i class="fa-solid fa-circle-check"></i>
-                    ${$(this).val()}
+                    <span>${$(this).val()}</span>
                     <div class="container-ellipsis">
                         <i class="fa-solid fa-ellipsis"></i>
                         <div class="dropdown--ellipsis">
@@ -59,15 +59,18 @@ $(document).ready(function(){
         $(ele).toggleClass('deactivate');
     }
 
-    // ! funzione di ricerca (not work!)
+    // ! funzione di ricerca (not work)
     testo.keydown( function(e){
-        let findText = $(`li:contains(${testo.val()})`)
+
+        let search = $(this).val().toLowerCase().trim();
         if (e.keyCode == 13) {
-            console.log(testo.val());
-            if(findText){
-                findText.css("backgroundColor", "yellow")
-            }
-            
+
+            $(lista).find("li").each(function (i, el){
+                if ($(el).find("span").text().toLowerCase().trim().match(search)) {
+                    $(el).find("span").css("background-color", "yellow");
+                }
+            })
+            $(this).val("");
         }
     })
     
@@ -75,6 +78,7 @@ $(document).ready(function(){
     $(".add-todo").click(function (){ 
         
         if(click == 0){
+            $("ul li span").css({ 'background-color' : '', 'opacity' : '' });
             createTodo();
         }
         click++;
